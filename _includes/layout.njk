@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title | default("My Blog") }}</title>
+  <link rel="stylesheet" href="/public/styles/globals.css">
+  <link rel="stylesheet" href="/public/styles/style.css">
+  {% block head %}{% endblock %}
+</head>
+<body>
+  <header class="header">
+    <nav>
+      <ul>
+        <li>
+          <a href="/">Blog</a>
+        </li>
+        <li>
+          <a href="./about.html">About</a>
+        </li>
+        <li>
+          <a href="./feed.xml" target="_blank">RSS</a>
+        </li>
+      </ul>
+      <select aria-label="Color Theme" data-theme-picker name="themepicker" id="color-theme-selector"
+        class="theme-picker">
+        <option value="light">
+          ☀ Light
+        </option>
+        <option value="dark">
+          🌙 Dark
+        </option>
+        <option value="system">
+          💻 System
+        </option>
+      </select>
+    </nav>
+  </header>
+
+  <main class="main-container">
+    <div></div>
+    {% block content %}
+    {{ content | safe }}
+    {% endblock %}
+    {% block toc %}{% endblock %}
+  </main>
+
+  <footer class="footer">
+    <p class="footer-text">© Michael Savych</p>
+  </footer>
+  <script src="/src/main.js"></script>
+</body>
+</html>

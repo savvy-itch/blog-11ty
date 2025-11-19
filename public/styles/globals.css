@@ -1,0 +1,117 @@
+:root {
+  --light-text: hsl(240, 5%, 16%);
+  --dim-text: hsl(192, 9%, 31%);
+  --dimmer-text: hsl(192, 9%, 45%);
+  --highlight-color: hsl(348, 53%, 67%);
+  --highlight-darker: hsl(348, 53%, 58%);
+  --bg-color: hsl(231 27% 94% / 1);
+  --footer-bg: lightgray;
+  --btn-bg: hsl(120, 3%, 45%);
+  --article-topics-bg: hsl(230, 28%, 80%);
+  --page-btn-bg: hsl(212, 30%, 58%);
+  --page-btn-border: hsl(212, 30%, 58%);
+  --code-block-bg: lightgray;
+  --code-copy-icon-color: invert(28%) sepia(11%) saturate(459%) hue-rotate(146deg) brightness(100%) contrast(87%);
+  --code-copy-hover: invert(48%) sepia(7%) saturate(654%) hue-rotate(145deg) brightness(92%) contrast(93%);
+  --copy-btn-hover-bg: hsl(231, 22%, 93%);
+  --link-color: hsl(348, 53%, 46%);
+  --link-hover: hsl(348, 53%, 52%);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --light-text: hsl(74.4deg 28.09% 87.55%);
+    --dim-text: hsl(192, 9%, 71%);
+    --dimmer-text: hsl(192, 9%, 56%);
+    --highlight-color: hsl(348, 53%, 47%);
+    --highlight-darker: hsl(348, 53%, 43%);
+    --bg-color: hsl(231 27% 15% / 1);
+    --footer-bg: hsl(231 23% 28% / 1);
+    --btn-bg: hsl(120, 3%, 22%);
+    --article-topics-bg: hsl(231 28% 25% / 1);
+    --page-btn-bg: hsl(212, 30%, 26%);
+    --page-btn-border: hsl(192, 9%, 56%);
+    --code-block-bg: hsl(219, 13%, 22%);
+    --code-copy-icon-color: invert(98%) sepia(0%) saturate(0%) hue-rotate(156deg) brightness(89%) contrast(88%);
+    --code-copy-hover: invert(96%) sepia(4%) saturate(15%) hue-rotate(106deg) brightness(110%) contrast(106%);
+    --copy-btn-hover-bg: hsl(231 23% 28% / 1);
+    --link-color: hsl(348, 53%, 58%);
+    --link-hover: hsl(348, 53%, 53%);
+  }
+}
+
+html {
+  color-scheme: dark light;
+}
+
+:root:has(#color-theme-selector [value="light"]:checked) {
+  color-scheme: light;
+  --light-text: hsl(240, 5%, 16%);
+  --dim-text: hsl(192, 9%, 31%);
+  --dimmer-text: hsl(192, 9%, 45%);
+  --highlight-color: hsl(348, 53%, 67%);
+  --highlight-darker: hsl(348, 53%, 58%);
+  --bg-color: hsl(231 27% 94% / 1);
+  --footer-bg: lightgray;
+  --btn-bg: hsl(120, 3%, 45%);
+  --article-topics-bg: #bec2da;
+  --page-btn-bg: hsl(212, 30%, 58%);
+  --page-btn-border: hsl(212, 30%, 58%);
+  --code-block-bg: lightgray;
+  --code-copy-icon-color: invert(28%) sepia(11%) saturate(459%) hue-rotate(146deg) brightness(100%) contrast(87%);;
+  --code-copy-hover: invert(48%) sepia(7%) saturate(654%) hue-rotate(145deg) brightness(92%) contrast(93%);
+  --copy-btn-hover-bg: hsl(231, 22%, 93%);
+  --link-color: hsl(348, 53%, 46%);
+  --link-hover: hsl(348, 53%, 52%);
+}
+
+:root:has(#color-theme-selector [value="dark"]:checked) {
+  color-scheme: dark;
+  --light-text: hsl(74.4deg 28.09% 87.55%);
+  --dim-text: hsl(192, 9%, 71%);
+  --dimmer-text: hsl(192, 9%, 56%);
+  --highlight-color: hsl(348, 53%, 47%);
+  --highlight-darker: hsl(348, 53%, 43%);
+  --bg-color: hsl(231 27% 15% / 1);
+  --footer-bg: hsl(231 23% 28% / 1);
+  --btn-bg: hsl(120, 3%, 22%);
+  --article-topics-bg: hsl(231 28% 25% / 1);
+  --page-btn-bg: hsl(212, 30%, 26%);
+  --page-btn-border: hsl(192, 9%, 56%);
+  --code-block-bg: #31363F;
+  --code-copy-icon-color: invert(98%) sepia(0%) saturate(0%) hue-rotate(156deg) brightness(89%) contrast(88%);
+  --code-copy-hover: invert(96%) sepia(4%) saturate(15%) hue-rotate(106deg) brightness(110%) contrast(106%);
+  --copy-btn-hover-bg: hsl(231 23% 28% / 1);
+  --link-color: hsl(348, 53%, 58%);
+  --link-hover: hsl(348, 53%, 53%);
+}
+
+html {
+  color-scheme: dark light;
+}
+
+body {
+  --px: 10rem;
+  --article-card-padding: 1rem;
+  --color-transition: .2s;
+  --nav-height: 100px;
+  --regular-text-size: 1.2rem;
+}
+
+@media screen and (max-width: 1600px) {
+  body {
+    --px: 3rem;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  body {
+    --px: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 512px) {
+  body {
+    --px: 1rem;
+  }
+}

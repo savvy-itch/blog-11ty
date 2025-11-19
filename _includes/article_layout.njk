@@ -1,0 +1,39 @@
+{% extends "layout.njk" %}
+
+{% block head %}
+<link rel="stylesheet" href="/public/styles/article.css">
+<link rel="stylesheet" href="/public/styles/prism.css">
+<script src="/src/article.js" defer></script>
+<!-- <script src="/src/prism.js" defer></script> -->
+<!-- <link href="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/themes/prism.min.css" rel="stylesheet" />
+<script src="https:///prismjs@v1.x/components/prism-core.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/autoloader/prism-autoloader.min.js" defer></script> -->
+{% endblock %}
+
+{% block toc %}
+<aside class="content-table">
+  <h4 class="sidebar-heading">In this article</h4>
+  <ul class="content-table-list">
+    {% for item in table_of_contents %}
+      <li>
+        <a href="{{ item.href }}">{{ item.text }}</a>
+        {% if item.children %}
+          <ul>
+          {% for child in item.children %}
+            <li><a href="{{ child.href }}">{{ child.text }}</a></li>
+          {% endfor %}
+          </ul>
+        {% endif%}
+      </li>
+    {% endfor %}
+  </ul>
+</aside>
+{% endblock %}
+
+{% block content %}
+<div class="article-wrapper">
+<h1>{{ title | default("My Blog") }}</h1>
+<p class="article-details-pub-date">{{ pub_date }}</p>
+{{ content | safe }}
+</div>
+{% endblock %}

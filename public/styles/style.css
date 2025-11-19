@@ -1,0 +1,143 @@
+@font-face {
+  font-family: 'Noto Sans';
+  src: url('../fonts/NotoSansDisplay-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Noto Sans Bold';
+  src: url('../fonts/NotoSansDisplay-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Fredoka';
+  src: url('../fonts/Fredoka-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Fredoka SemiBold';
+  src: url('../fonts/Fredoka-SemiBold.ttf') format('truetype');
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+p, span, a, input, label, td, select, option {
+  font-family: 'Fredoka', Arial, Helvetica, sans-serif;
+}
+
+th {
+  font-family: 'Fredoka SemiBold', Arial, Helvetica, sans-serif;
+}
+
+body {
+  min-height: 100dvh;
+  background-color: var(--bg-color);
+  color: var(--light-text);
+  scroll-behavior: smooth;
+}
+
+.main-container {
+  /* display: flex; */
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  gap: 2rem;
+  padding: 2rem var(--px);
+}
+
+a {
+  color: var(--light-text);
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav > ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+h1 {
+  text-align: center;
+}
+
+h1, h2, h3 {
+  font-family: 'Noto Sans Bold', Arial, Helvetica, sans-serif;
+}
+
+.header {
+  padding: 2rem var(--px);
+  position: sticky;
+  top: 0;
+  background-color: var(--bg-color);
+  z-index: 10;
+  font-size: 1.2rem;
+  font-weight: bold;
+  min-height: var(--nav-height);
+}
+
+.header a {
+  text-decoration: none;
+  font-family: 'Noto Sans Bold', Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: var(--light-text);
+  transition: color .2s;
+}
+
+.header a:hover {
+  color: var(--dim-text);
+}
+
+table {
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+}
+
+.theme-picker {
+  font-size: 1.2rem;
+  padding: 6px;
+  border-radius: 4px;
+  border: 1px solid 1px solid var(--light-text);
+  background-color: transparent;
+}
+
+.theme-picker option {
+  background-color: var(--bg-color);
+}
+
+.theme-picker:hover {
+  cursor: pointer;
+}
+
+.footer {
+  padding: 1rem;
+}
+
+.footer-text {
+  text-align: center;
+}
+
+@media screen and (max-width: 520px) {
+  .header {
+    padding: 1rem;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  nav > ul {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
