@@ -1,7 +1,7 @@
 import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import { feedPlugin } from "@11ty/eleventy-plugin-rss";
 
-export default function(eleventyConfig) {
+export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./public/styles/");
   eleventyConfig.addPassthroughCopy("./public/fonts/");
   eleventyConfig.addPassthroughCopy("./public/images/");
@@ -30,5 +30,12 @@ export default function(eleventyConfig) {
         name: "Michael Savych",
       }
     }
+  });
+  eleventyConfig.addFilter('localeDate', function (str) {
+    const d = new Date(str);
+    return d.toLocaleDateString('en', { month: 'short', day: 'numeric', year: 'numeric' });
+  });
+  eleventyConfig.addFilter('pluralize', function (n) {
+    return n === 1 ? '' : 's';
   });
 }

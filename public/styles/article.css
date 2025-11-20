@@ -1,6 +1,4 @@
 .article-wrapper {
-  /* width: 62%;
-  min-width: 60ch; */
   max-width: 75ch;
   justify-self: center;
 }
@@ -16,7 +14,6 @@
   border-radius: .25rem;
   background-color: var(--footer-bg);
   color: var(--light-text);
-  font-weight: 600;
 }
 
 code, code * {
@@ -89,11 +86,45 @@ code, code * {
   line-height: 1.5;
   font-size: var(--regular-text-size);
   overflow-wrap: break-word;
+  text-align: justify;
+}
+
+.article-wrapper li {
+  list-style-position: inside;
 }
 
 .article-wrapper > p,
 .article-wrapper ul {
   margin: 1.3rem 0;
+}
+
+.article-wrapper h2, h3, h4, h5, h6 {
+  margin: 3rem 0 1.3rem 0;
+}
+
+.article-wrapper th,
+.article-wrapper td {
+  border: 1px solid var(--light-text);
+  padding: 5px;
+}
+
+.article-wrapper a {
+  color: var(--link-color);
+  transition: color .2s;
+}
+
+.article-wrapper a:hover {
+  color: var(--link-hover);
+}
+
+.article-wrapper p:has(img) {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.article-wrapper p > img {
+  max-width: 90%;
 }
 
 /* Okaidia theme extension for light theme */
