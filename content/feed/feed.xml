@@ -27,7 +27,7 @@
       <title>{{ article.data.title }}</title>
       <link>{{ absoluteArticleUrl }}</link>
       <description>{{ article.content | renderTransforms(article.data.page, metadata.base) }}</description>
-      <pubDate>{{ article.pub_date | dateToRfc822 }}</pubDate>
+      <pubDate>{{ article.date | dateToRfc822 }}</pubDate>
       <dc:creator>{{ metadata.author.name }}</dc:creator>
       <guid>{{ absoluteArticleUrl }}</guid>
     </item>

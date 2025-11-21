@@ -1,1 +1,18 @@
+.article {
+  margin: 2.5rem 0;
+}
 
+.article h2 {
+  margin-bottom: .7rem;
+  font-size: 1.7rem;
+}
+
+.article-info-wrapper {
+  display: flex;
+}
+
+.article-info-wrapper p {
+  color: var(--dim-text);
+  font-size: 1rem;
+  margin-right: 1rem;
+}

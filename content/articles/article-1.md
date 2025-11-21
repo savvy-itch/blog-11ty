@@ -1,6 +1,6 @@
 ---
 title: Article Title 1
-pub_date: '2025-10-14'
+date: '2025-10-14'
 tags: ['React', 'JavaScript']
 time_to_read: 3
 table_of_contents:
@@ -49,7 +49,7 @@ console.log("code with backticks");
 ```
 
 
-```c#
+```cs
 using System;
 
 class Program

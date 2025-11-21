@@ -98,10 +98,6 @@ code, code * {
   margin: 1.3rem 0;
 }
 
-.article-wrapper h2, h3, h4, h5, h6 {
-  margin: 3rem 0 1.3rem 0;
-}
-
 .article-wrapper th,
 .article-wrapper td {
   border: 1px solid var(--light-text);
@@ -125,6 +121,154 @@ code, code * {
 
 .article-wrapper p > img {
   max-width: 90%;
+}
+
+.share-wrapper {
+  position: relative;
+}
+
+.share-btn {
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding: 7px 12px;
+  border-radius: 20px;
+  border: 1px solid var(--light-text);
+  background-color: transparent;
+  transition: var(--color-transition);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 1.5rem 0;
+}
+
+.share-btn img {
+  width: 1rem;
+  height: 1rem;
+  filter: var(--code-copy-icon-color);
+}
+
+.share-btn:hover {
+  cursor: pointer;
+  border: 1px solid var(--dimmer-text);
+}
+
+.share-wrapper .share-links-list {
+  position: absolute;
+  left: 0;
+  border: 1px solid var(--light-text);
+  border-radius: 5px;
+  margin: 0;
+  background-color: var(--bg-color);
+  padding: 5px;
+  list-style: none;
+  display: none;
+}
+
+.share-links-list.show {
+  display: block;
+}
+
+.share-links-list li {
+  border-radius: 4px;
+}
+
+.share-links-list a,
+.share-links-list button {
+  font-size: var(--regular-text-size);
+  color: var(--light-text);
+  font-weight: 500;
+  text-decoration: none;
+  width: 100%;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.share-links-list button {
+  background-color: transparent;
+  border: none;
+  border-radius: 4px;
+}
+
+.share-links-list li:hover,
+.share-links-list button:hover {
+  background-color: var(--footer-bg);
+  cursor: pointer;
+}
+
+.share-links-list a:hover {
+  color: var(--light-text);
+}
+
+.share-links-list a > img,
+.share-links-list button > img {
+  width: 1rem;
+  height: 1rem;
+  filter: var(--code-copy-icon-color);
+}
+
+.up-btn {
+  position: fixed;
+  z-index: 100;
+  bottom: 5%;
+  right: 10%;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--link-color);
+  border: 1px solid var(--light-text);
+  transition: transform .3s;
+  animation-duration: .3s;
+  animation-name: btn-collapse;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.up-btn img {
+  width: 3rem;
+  height: 3rem;
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(108deg) brightness(104%) contrast(104%);
+}
+
+.up-btn.show-btn {
+  animation-duration: .3s;
+  animation-name: btn-pop-up;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.up-btn:hover {
+  cursor: pointer;
+  border: 1px solid var(--dim-text);
+}
+
+@keyframes btn-pop-up {
+  0% {
+    transform: scale(0);
+  }
+  85% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes btn-collapse {
+  0% {
+    transform: scale(1);
+  }
+  15% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(0);
+  }
 }
 
 /* Okaidia theme extension for light theme */

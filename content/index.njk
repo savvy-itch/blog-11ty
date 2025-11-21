@@ -1,0 +1,26 @@
+{% extends "layout.njk" %}
+
+{% block head %}
+<link rel="stylesheet" href="/public/styles/index.css">
+{% endblock %}
+
+{% block content %}
+<div>
+  <h1>Posts</h1>
+  <div>
+    {% for article in collections.articles | reverse %}
+    <article class="article">
+      <h2>
+        <a href="{{ article.url }}">
+          {{ article.data.title }}
+        </a>
+      </h2>
+      <div class="article-info-wrapper">
+        <p>{{ article.data.date|localeDate }}</p>
+        <p>{{ article.data.time_to_read }} min{{ article.data.time_to_read | pluralize }} read</p>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

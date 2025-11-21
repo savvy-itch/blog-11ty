@@ -89,3 +89,63 @@ function setCurrentSectionHeading(entry) {
 sectionHeadings.forEach(h => {
   observer.observe(h);
 });
+
+shareCopyLinkBtn.addEventListener('click', async (e) => {
+  e.stopPropagation();
+  const link = shareCopyLinkBtn.dataset.link;
+  try {
+    await navigator.clipboard.writeText(link);
+    shareCopyLinkBtn.querySelector('span').textContent = 'Copied!';
+  } catch (error) {
+    console.error();
+    shareCopyLinkBtn.querySelector('span').textContent = 'Error';
+  }
+});
+
+shareBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  shareLinkList.classList.toggle('show');
+  shareCopyLinkBtn.querySelector('span').textContent = 'Copy Link';
+});
+
+document.addEventListener('click', (e) => {
+  e.stopPropagation();
+  if (!shareLinkList.contains(e.target)
+    && e.target !== shareBtn
+    && shareLinkList.classList.contains('show')) {
+    shareLinkList.classList.remove('show');
+    shareCopyLinkBtn.querySelector('span').textContent = 'Copy Link';
+  }
+});
+
+upBtn.addEventListener('click', scrollToTop);
+
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
+
+window.addEventListener('scroll', () => {
+  handleUpBtnDisplay();
+});
+
+function handleUpBtnDisplay() {
+  if (window.scrollY > windowHeight) {
+    upBtn.classList.add('show-btn');
+  } else {
+    upBtn.classList.remove('show-btn');
+  }
+}
+
+contentSectionLinks.forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    for (const heading of sectionHeadings) {
+      if (heading.id === link.hash.slice(1)) {
+        heading.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    }
+  });
+});

@@ -28,10 +28,53 @@
 
 {% block content %}
 <div class="article-wrapper">
-<h1>{{ title | default("My Blog") }}</h1>
-<p id="pub-date" class="article-details-pub-date">{{ pub_date|localeDate }}
-</p>
-<p>⏱ <span id="time-to-read">{{ time_to_read }}</span> min{{ time_to_read | pluralize }} read</p>
-{{ content | safe }}
+  <h1>{{ title | default("My Blog") }}</h1>
+  <p id="pub-date" class="article-details-pub-date">{{ date|localeDate }}
+  </p>
+  <p>⏱ <span id="time-to-read">{{ time_to_read }}</span> min{{ time_to_read | pluralize }} read</p>
+
+  {{ content | safe }}
+
+  <div id="share=wrapper" class="share-wrapper">
+
+    <button id="share-btn" class="share-btn">
+      <img src="/public/images/share.svg" alt="share article">
+      Share
+    </button>
+    <ul id="share-links-list" class="share-links-list">
+      <li>
+        <a href="https://bsky.app/intent/compose?text={{ title }}" class="link-elem" title="Share on Bluesky"
+          target="_blank">
+          <img src="/public/images/bluesky.svg" alt="bluesky icon" />
+          Bluesky
+        </a>
+      </li>
+      <li>
+        <a href="https://www.facebook.com/sharer/sharer.php?u={{ page.url|htmlBaseUrl(site.base) }}" class="link-elem"
+          title="Share on Facebook" target="_blank">
+          <img src="/public/images/facebook.svg" alt="facebook icon" />
+          Facebook
+        </a>
+      </li>
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url={{ page.url|htmlBaseUrl(site.base) }}&mini=true" class="link-elem"
+          title="Share on LinkedIn" target="_blank">
+          <img src="/public/images/linkedin.svg" alt="linkedin icon" />
+          LinkedIn
+        </a>
+      </li>
+      <li>
+        <button title="Get shareable link" data-link="{{ page.url|htmlBaseUrl(site.base) }}" id="share-copy-link"
+          class="link-elem">
+          <img src="/public/images/link.svg" alt="copy icon" />
+          <span>Copy Link</span>
+        </button>
+      </li>
+    </ul>
+  </div>
+
+  <button id="up-btn" class="up-btn">
+    <img src="/public/images/arrow-big-up.svg" alt="go up icon">
+  </button>
 </div>
 {% endblock %}

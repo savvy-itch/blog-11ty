@@ -16,7 +16,7 @@ export default function (eleventyConfig) {
   });
   eleventyConfig.addPlugin(feedPlugin, {
     type: "rss",
-    outputPath: "/feed.xml",
+    outputPath: "/feed/feed.xml",
     collection: {
       name: "articles",
       limit: 10,
@@ -38,4 +38,14 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter('pluralize', function (n) {
     return n === 1 ? '' : 's';
   });
-}
+};
+
+export const config = {
+  htmlTemplateEngine: "njk",
+  dir: {
+    input: "content",
+    includes: "../_includes",
+    data: "../_data",
+    output: "_site"
+  }
+};
