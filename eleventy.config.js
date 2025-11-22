@@ -25,7 +25,7 @@ export default function (eleventyConfig) {
       language: "en",
       title: "Michael Savych",
       subtitle: "A blog about programming through my discombobulated thoughts.",
-      base: "http://localhost:8080/",
+      base: "https://blogsavvyitch.netlify.app/",
       author: {
         name: "Michael Savych",
       }

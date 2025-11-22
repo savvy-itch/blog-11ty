@@ -1,21 +1,21 @@
 @font-face {
   font-family: 'Noto Sans';
-  src: url('../fonts/NotoSansDisplay-Regular.ttf') format('truetype');
+  src: url('../fonts/NotoSansDisplay-Regular.woff') format('woff');
 }
 
 @font-face {
   font-family: 'Noto Sans Bold';
-  src: url('../fonts/NotoSansDisplay-SemiBold.ttf') format('truetype');
+  src: url('../fonts/NotoSansDisplay-Bold.woff') format('woff');
 }
 
 @font-face {
   font-family: 'Fredoka';
-  src: url('../fonts/Fredoka-Regular.ttf') format('truetype');
+  src: url('../fonts/Fredoka-Regular.woff') format('woff');
 }
 
 @font-face {
   font-family: 'Fredoka SemiBold';
-  src: url('../fonts/Fredoka-SemiBold.ttf') format('truetype');
+  src: url('../fonts/Fredoka-SemiBold.woff') format('woff');
 }
 
 * {
@@ -106,6 +106,10 @@ table {
   margin: 1.5rem 0;
 }
 
+.mobile-picker {
+  display: none;
+}
+
 .theme-picker {
   font-size: 1.2rem;
   padding: 6px;
@@ -137,18 +141,43 @@ table {
   font-size: .9rem;
 }
 
+@media screen and (max-width: 1100px) {
+  .header {
+    padding: 2rem var(--px) 1rem var(--px);
+  }
+
+  h1 {
+    margin-top: 1rem;
+  }
+
+  .main-container {
+    display: block;
+    padding-top: 1rem;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  h2, h3, h4, h5, h6 {
+    margin: 1.5rem 0 1rem 0;
+  }
+}
+
 @media screen and (max-width: 520px) {
   .header {
     padding: 1rem;
   }
 
-  nav {
-    flex-direction: column;
-    align-items: flex-end;
-  }
-
   nav > ul {
     width: 100%;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+    gap: 2rem;
+  }
+
+  .mobile-picker {
+    display: block;
+  }
+
+  .main-picker {
+    display: none;
   }
 }

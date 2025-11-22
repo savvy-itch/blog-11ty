@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ title | default("My Blog") }}</title>
+  <title>{{ title | default("Blog | Michael Savych") }}</title>
   <link rel="stylesheet" href="/public/styles/globals.css">
   <link rel="stylesheet" href="/public/styles/style.css">
   {% block head %}{% endblock %}
@@ -31,16 +31,16 @@
         </li>
       </ul>
       <select aria-label="Color Theme" data-theme-picker name="themepicker" id="color-theme-selector"
-        class="theme-picker">
-        <option value="light">
-          ☀ Light
-        </option>
-        <option value="dark">
-          🌙 Dark
-        </option>
-        <option value="system">
-          💻 System
-        </option>
+        class="theme-picker main-picker">
+        <option value="light">☀ Light</option>
+        <option value="dark">🌙 Dark</option>
+        <option value="system">💻 System</option>
+      </select>
+      <select aria-label="Color Theme" data-theme-picker name="themepicker" id="mobile-color-theme-selector"
+        class="theme-picker mobile-picker">
+        <option value="light">☀</option>
+        <option value="dark">🌙</option>
+        <option value="system">💻</option>
       </select>
     </nav>
   </header>

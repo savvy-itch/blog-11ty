@@ -6,7 +6,7 @@
     "title": "Michael Savych",
     "description": "Dummy desc",
     "language": "en",
-    "base": "http://localhost:8080/",
+    "base": "https://blogsavvyitch.netlify.app/",
     "author": {
       "name": "Michael Savych"
     }

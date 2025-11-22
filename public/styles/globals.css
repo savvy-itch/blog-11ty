@@ -44,7 +44,8 @@ html {
   color-scheme: dark light;
 }
 
-:root:has(#color-theme-selector [value="light"]:checked) {
+:root:has(#color-theme-selector [value="light"]:checked),
+:root:has(#mobile-color-theme-selector [value="light"]:checked) {
   color-scheme: light;
   --light-text: hsl(240, 5%, 16%);
   --dim-text: hsl(192, 9%, 31%);
@@ -65,7 +66,8 @@ html {
   --link-hover: hsl(348, 53%, 52%);
 }
 
-:root:has(#color-theme-selector [value="dark"]:checked) {
+:root:has(#color-theme-selector [value="dark"]:checked),
+:root:has(#mobile-color-theme-selector [value="dark"]:checked) {
   color-scheme: dark;
   --light-text: hsl(74.4deg 28.09% 87.55%);
   --dim-text: hsl(192, 9%, 71%);

@@ -399,12 +399,28 @@ code, code * {
   color: var(--highlight-color);
 }
 
-@media screen and (max-width: 1024px) {
+.content-table-list.sm-list {
+  display: none;
+}
+
+@media screen and (min-width: 1920px) {
+  .article-wrapper {
+    max-width: 80ch;
+  }
+}
+
+@media screen and (max-width: 1100px) {
   .content-table {
     display: none;
   }
 
   .content-table-list.sm-list {
     display: block;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .article-wrapper p > img {
+    max-width: 100%;
   }
 }

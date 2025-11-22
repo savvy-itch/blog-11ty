@@ -16,3 +16,8 @@
   font-size: 1rem;
   margin-right: 1rem;
 }
+
+.blog-desc {
+  text-align: center;
+  font-size: var(--regular-text-size);
+}
