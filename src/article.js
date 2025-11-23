@@ -3,20 +3,9 @@ const shareCopyLinkBtn = document.getElementById('share-copy-link');
 const shareBtn = document.getElementById('share-btn');
 const shareLinkList = document.getElementById('share-links-list');
 const upBtn = document.getElementById('up-btn');
-const contentSectionLinks = document.querySelectorAll('.content-table a');
+const contentSectionLinks = document.querySelectorAll('aside .content-table-list a');
 const sectionHeadings = document.querySelectorAll('.article-subheading');
 const windowHeight = window.innerHeight;
-const datePara = document.getElementById("pub-date");
-
-document.addEventListener("DOMContentLoaded", () => {
-  // if (datePara) {
-  //   const date = datePara.textContent;
-  //   date.to
-  //   if (textContent) {
-
-  //   }
-  // }
-});
 
 codeBlocks.forEach(blockElem => appendCodeCopyBtn(blockElem));
 
@@ -25,9 +14,9 @@ function appendCodeCopyBtn(blockElem) {
     const copyBtn = document.createElement('button');
     copyBtn.classList.add('copy-to-clipboard-btn');
     copyBtn.innerHTML = `
-      <img class="copy-to-clipboard-icon show" src="/public/images/clipboard-icon.svg" alt="copy to clipboard icon">
-      <img class="success-copy-icon" src="/public/images/check.svg" alt="successful copy to clipboard icon">
-      <img class="fail-copy-icon" src="/public/images/x.svg" alt="failed copy to clipboard icon">
+      <img class="copy-to-clipboard-icon show" src="/public/images/clipboard-icon.svg" alt="copy to clipboard icon" loading="lazy" decoding="async" />
+      <img class="success-copy-icon" src="/public/images/check.svg" alt="successful copy to clipboard icon" loading="lazy" decoding="async" />
+      <img class="fail-copy-icon" src="/public/images/x.svg" alt="failed copy to clipboard icon" loading="lazy" decoding="async" />
       `;
     blockElem.appendChild(copyBtn);
     copyBtn.addEventListener('click', (e) => {
@@ -61,29 +50,24 @@ function animateCopyBtn(copyBtn, copyIcon, statusIcon) {
   }, 1000);
 }
 
-contentSectionLinks.forEach(link => {
-  link.addEventListener('click', (e) => {
-    e.preventDefault();
-    for (const heading of sectionHeadings) {
-      if (heading.id === link.hash.slice(1)) {
-        heading.scrollIntoView({ behavior: "smooth", block: "center" });
-      }
-    }
-  });
-});
-
 const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => setCurrentSectionHeading(entry));
+  const visibleEntries = entries
+    .filter(e => e.isIntersecting)
+    .sort((a, b) => a.boundingClientRect.bottom - b.boundingClientRect.bottom);
+  if (visibleEntries.length > 0) {
+    setCurrentSectionHeading(visibleEntries[0]);
+  }
 }, { rootMargin: '0% 0% -50% 0%' });
 
 function setCurrentSectionHeading(entry) {
-  const link = document.querySelector(`a[href="#${entry.target.id}"]`);
-  if (entry.isIntersecting) {
-    contentSectionLinks.forEach(link => link.setAttribute('aria-current', 'false'));
-    link.setAttribute('aria-current', 'true');
-  } else {
-    link.setAttribute('aria-current', 'false');
-  }
+  const link = [...contentSectionLinks].find(a => a.hash === `#${entry.target.id}`);
+  contentSectionLinks.forEach(l => {
+    if (l === link) {
+      l.setAttribute('aria-current', 'true');
+    } else {
+      l.setAttribute('aria-current', 'false')
+    }
+  });
 }
 
 sectionHeadings.forEach(h => {

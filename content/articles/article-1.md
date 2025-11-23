@@ -104,7 +104,9 @@ body {
 
 [Duck Duck Go](https://duckduckgo.com "The best search engine for privacy").
 
-![The San Juan Mountains are beautiful!](https://placehold.co/1200x600 "San Juan Mountains")
+<figure>
+  <img src="https://placehold.co/1200x600" alt="San Juan Mountains" title="San Juan Mountains" loading="lazy" decoding="async" />
+</figure>
 
 <h2 id="conclusion" class="article-subheading">Conclusion</h2>
 

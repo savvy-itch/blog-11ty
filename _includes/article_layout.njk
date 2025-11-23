@@ -8,7 +8,7 @@
 
 {% block toc %}
 <aside class="content-table">
-  <h4 class="sidebar-heading">In this article</h4>
+  <h2 class="sidebar-heading">In this article</h2>
   <ul class="content-table-list">
     {% for item in table_of_contents %}
       <li>
@@ -53,35 +53,35 @@
   <div id="share=wrapper" class="share-wrapper">
 
     <button id="share-btn" class="share-btn">
-      <img src="/public/images/share.svg" alt="share article">
+      <img src="/public/images/share.svg" alt="share article" loading="lazy" decoding="async" />
       Share
     </button>
     <ul id="share-links-list" class="share-links-list">
       <li>
         <a href="https://bsky.app/intent/compose?text={{ title }}" class="link-elem" title="Share on Bluesky"
           target="_blank">
-          <img src="/public/images/bluesky.svg" alt="bluesky icon" />
+          <img src="/public/images/bluesky.svg" alt="bluesky icon" loading="lazy" decoding="async" />
           Bluesky
         </a>
       </li>
       <li>
         <a href="https://www.facebook.com/sharer/sharer.php?u={{ page.url|htmlBaseUrl(site.base) }}" class="link-elem"
           title="Share on Facebook" target="_blank">
-          <img src="/public/images/facebook.svg" alt="facebook icon" />
+          <img src="/public/images/facebook.svg" alt="facebook icon" loading="lazy" decoding="async" />
           Facebook
         </a>
       </li>
       <li>
         <a href="https://www.linkedin.com/shareArticle?url={{ page.url|htmlBaseUrl(site.base) }}&mini=true" class="link-elem"
           title="Share on LinkedIn" target="_blank">
-          <img src="/public/images/linkedin.svg" alt="linkedin icon" />
+          <img src="/public/images/linkedin.svg" alt="linkedin icon" loading="lazy" decoding="async" />
           LinkedIn
         </a>
       </li>
       <li>
         <button title="Get shareable link" data-link="{{ page.url|htmlBaseUrl(site.base) }}" id="share-copy-link"
           class="link-elem">
-          <img src="/public/images/link.svg" alt="copy icon" />
+          <img src="/public/images/link.svg" alt="copy icon" loading="lazy" decoding="async" />
           <span>Copy Link</span>
         </button>
       </li>
@@ -89,7 +89,7 @@
   </div>
 
   <button id="up-btn" class="up-btn">
-    <img src="/public/images/arrow-big-up.svg" alt="go up icon">
+    <img src="{{ "/public/images/arrow-big-up.svg" | url }}" alt="go up icon" loading="lazy" decoding="async" />
   </button>
 </div>
 {% endblock %}

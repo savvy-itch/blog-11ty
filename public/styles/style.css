@@ -1,20 +1,24 @@
 @font-face {
   font-family: 'Noto Sans';
+  font-display: swap;
   src: url('../fonts/NotoSansDisplay-Regular.woff') format('woff');
 }
 
 @font-face {
   font-family: 'Noto Sans Bold';
+  font-display: swap;
   src: url('../fonts/NotoSansDisplay-Bold.woff') format('woff');
 }
 
 @font-face {
   font-family: 'Fredoka';
+  font-display: swap;
   src: url('../fonts/Fredoka-Regular.woff') format('woff');
 }
 
 @font-face {
   font-family: 'Fredoka SemiBold';
+  font-display: swap;
   src: url('../fonts/Fredoka-SemiBold.woff') format('woff');
 }
 
