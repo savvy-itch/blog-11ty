@@ -1,11 +1,13 @@
 import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import { feedPlugin } from "@11ty/eleventy-plugin-rss";
+import sitemap from "@quasibit/eleventy-plugin-sitemap";
 
 export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./public/styles/");
   eleventyConfig.addPassthroughCopy("./public/fonts/");
   eleventyConfig.addPassthroughCopy("./public/images/");
   eleventyConfig.addPassthroughCopy("./src/");
+
   eleventyConfig.addPlugin(syntaxHighlight, {
     preAttributes: {
       class: "code-block"
@@ -31,6 +33,12 @@ export default function (eleventyConfig) {
       }
     }
   });
+  eleventyConfig.addPlugin(sitemap, {
+    sitemap: {
+      hostname: "https://blogsavvyitch.netlify.app/",
+    }
+  });
+
   eleventyConfig.addFilter('localeDate', function (str) {
     const d = new Date(str);
     return d.toLocaleDateString('en', { month: 'short', day: 'numeric', year: 'numeric' });

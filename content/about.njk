@@ -1,8 +1,16 @@
 {% extends "layout.njk" %}
 
 {% block head %}
-<link rel="stylesheet" href="/public/styles/about.css">
 <script src="/src/about.js" defer></script>
+<style>
+p {
+  line-height: 1.5;
+  font-size: var(--regular-text-size);
+  overflow-wrap: break-word;
+  text-align: justify;
+  margin: 1.3rem 0;
+}
+</style>
 {% endblock %}
 
 {% block content %}

@@ -21,6 +21,8 @@
         <p>{{ article.data.time_to_read }} min{{ article.data.time_to_read | pluralize }} read</p>
       </div>
     </article>
+    {% else %}
+    <p class="no-posts-para">No posts yet...</p>
     {% endfor %}
   </div>
 </div>

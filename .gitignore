@@ -3,3 +3,4 @@ _site
 todo.txt
 .env
 .cache/
+example.md
