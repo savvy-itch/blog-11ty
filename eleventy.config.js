@@ -1,6 +1,7 @@
 import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
-import { feedPlugin } from "@11ty/eleventy-plugin-rss";
+import rssPlugin from "@11ty/eleventy-plugin-rss";
 import sitemap from "@quasibit/eleventy-plugin-sitemap";
+import htmlmin from "html-minifier-terser";
 
 export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./public/styles/");
@@ -16,28 +17,12 @@ export default function (eleventyConfig) {
       class: "code-elem"
     }
   });
-  eleventyConfig.addPlugin(feedPlugin, {
-    type: "rss",
-    outputPath: "/feed/feed.xml",
-    collection: {
-      name: "articles",
-      limit: 10,
-    },
-    metadata: {
-      language: "en",
-      title: "Michael Savych",
-      subtitle: "A blog about programming through my discombobulated thoughts.",
-      base: "https://blogsavvyitch.netlify.app/",
-      author: {
-        name: "Michael Savych",
-      }
-    }
-  });
   eleventyConfig.addPlugin(sitemap, {
     sitemap: {
       hostname: "https://blogsavvyitch.netlify.app/",
     }
   });
+  eleventyConfig.addPlugin(rssPlugin);
 
   eleventyConfig.addFilter('localeDate', function (str) {
     const d = new Date(str);
@@ -45,6 +30,19 @@ export default function (eleventyConfig) {
   });
   eleventyConfig.addFilter('pluralize', function (n) {
     return n === 1 ? '' : 's';
+  });
+
+  eleventyConfig.addTransform("htmlmin", function (content) {
+    if ((this.page.outputPath || "").endsWith(".html")) {
+      let minified = htmlmin.minify(content, {
+        useShortDoctype: true,
+        removeComments: true,
+        collapseWhitespace: true,
+        collapseInlineTagWhitespace: true,
+      });
+      return minified;
+    }
+    return content;
   });
 };
 

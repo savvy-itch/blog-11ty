@@ -4,12 +4,13 @@
   "eleventyExcludeFromCollections": true,
   "metadata": {
     "title": "Michael Savych",
-    "description": "Dummy desc",
+    "description": "A programming blog by an ever-curious developer, with technical tutorials, tech-related discussions, and ramblings from personal experience.",
     "language": "en",
     "base": "https://blogsavvyitch.netlify.app/",
     "author": {
       "name": "Michael Savych"
-    }
+    },
+    "icon": "https://blogsavvyitch.netlify.app/public/images/favicon.svg"
   }
 }
 ---
@@ -20,6 +21,11 @@
     <link>{{ metadata.base | addPathPrefixToFullUrl }}</link>
     <atom:link href="{{ permalink | htmlBaseUrl(metadata.base) }}" rel="self" type="application/rss+xml" />
     <description>{{ metadata.description }}</description>
+    <image>
+      <url>{{ metadata.icon }}</url>
+      <title>{{ metadata.title }}</title>
+      <link>{{ metadata.base }}</link>
+    </image>
     <language>{{ metadata.language or page.lang }}</language>
     {%- for article in collections.articles | reverse %}
     {%- set absoluteArticleUrl = article.url | htmlBaseUrl(metadata.base) %}
