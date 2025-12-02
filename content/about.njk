@@ -10,6 +10,13 @@ p {
   text-align: justify;
   margin: 1.3rem 0;
 }
+.main-container a {
+  color: var(--link-color);
+  transition: color .2s;
+}
+.main-container a:hover {
+  color: var(--link-hover);
+}
 </style>
 {% endblock %}
 
@@ -30,5 +37,7 @@ p {
   <p>In this blog, you can expect posts that describe my thought process of building various applications step-by-step,
     discussions on random programming topics I find interesting, and sharing my personal technical experience on this lifelong journey. Thank you for stopping by and checking out my blog!
   </p>
+
+  <p>You can find me on <a href="https://github.com/savvy-itch" target="_blank">GitHub</a> and <a href="https://bsky.app/profile/savvy-itch.bsky.social" target="_blank">BlueSky</a>.</p>
 </div>
 {% endblock %}

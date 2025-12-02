@@ -1,5 +1,5 @@
 .article-wrapper {
-  max-width: 75ch;
+  max-width: 77ch;
   justify-self: center;
 }
 
@@ -9,11 +9,12 @@
   font-style: italic;
 }
 
-p>code {
+p > code {
   padding: .125rem .25rem;
   border-radius: .25rem;
   background-color: var(--footer-bg);
   color: var(--light-text);
+  font-size: 1.1rem;
 }
 
 code,
@@ -329,7 +330,7 @@ code * {
 
 @media screen and (min-width: 1920px) {
   .article-wrapper {
-    max-width: 80ch;
+    max-width: 82ch;
   }
 }
 

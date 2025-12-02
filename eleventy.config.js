@@ -8,6 +8,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./public/fonts/");
   eleventyConfig.addPassthroughCopy("./public/images/");
   eleventyConfig.addPassthroughCopy("./src/");
+  eleventyConfig.addPassthroughCopy("./robots.txt");
 
   eleventyConfig.addPlugin(syntaxHighlight, {
     preAttributes: {
@@ -38,7 +39,6 @@ export default function (eleventyConfig) {
         useShortDoctype: true,
         removeComments: true,
         collapseWhitespace: true,
-        collapseInlineTagWhitespace: true,
       });
       return minified;
     }

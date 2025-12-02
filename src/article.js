@@ -133,3 +133,10 @@ contentSectionLinks.forEach(link => {
     }
   });
 });
+
+// function calcReadingTime() {
+//   let words = 0;
+//   for (const el of wrapper.children) {
+//     words += el.textContent.split(' ').length;
+//   }
+// }
