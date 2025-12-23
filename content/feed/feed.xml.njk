@@ -27,15 +27,15 @@
       <link>{{ metadata.base }}</link>
     </image>
     <language>{{ metadata.language or page.lang }}</language>
-    {%- for article in collections.articles | reverse %}
-    {%- set absoluteArticleUrl = article.url | htmlBaseUrl(metadata.base) %}
+    {%- for post in collections.posts | reverse %}
+    {%- set absolutePostUrl = post.url | htmlBaseUrl(metadata.base) %}
     <item>
-      <title>{{ article.data.title }}</title>
-      <link>{{ absoluteArticleUrl }}</link>
-      <description>{{ article.content | renderTransforms(article.data.page, metadata.base) }}</description>
-      <pubDate>{{ article.date | dateToRfc822 }}</pubDate>
+      <title>{{ post.data.title }}</title>
+      <link>{{ absolutePostUrl }}</link>
+      <description>{{ post.content | renderTransforms(post.data.page, metadata.base) }}</description>
+      <pubDate>{{ post.date | dateToRfc822 }}</pubDate>
       <dc:creator>{{ metadata.author.name }}</dc:creator>
-      <guid>{{ absoluteArticleUrl }}</guid>
+      <guid>{{ absolutePostUrl }}</guid>
     </item>
     {%- endfor %}
   </channel>

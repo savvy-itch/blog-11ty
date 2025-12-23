@@ -25,6 +25,7 @@ code * {
 .code-block {
   position: relative;
   margin: 1.3rem 0;
+  width: auto;
 }
 
 .code-block>.code-elem {
@@ -341,6 +342,12 @@ code * {
 
   .content-table-list.sm-list {
     display: block;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .code-block {
+    width: calc(100dvw - 2 * var(--px));
   }
 }
 

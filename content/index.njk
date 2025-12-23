@@ -9,16 +9,16 @@
   <p class="blog-desc">A programming blog of a very curious and very confused dev</p>
   <h1>Posts</h1>
   <div>
-    {% for article in collections.articles | reverse %}
+    {% for post in collections.posts | reverse %}
     <article class="article">
       <h2>
-        <a href="{{ article.url }}">
-          {{ article.data.title }}
+        <a href="{{ post.url }}">
+          {{ post.data.title }}
         </a>
       </h2>
       <div class="article-info-wrapper">
-        <p>{{ article.data.date|localeDate }}</p>
-        <p>{{ article.data.time_to_read }} min{{ article.data.time_to_read | pluralize }} read</p>
+        <p>{{ post.data.date|localeDate }}</p>
+        <p>{{ post.data.time_to_read }} min{{ post.data.time_to_read | pluralize }} read</p>
       </div>
     </article>
     {% else %}

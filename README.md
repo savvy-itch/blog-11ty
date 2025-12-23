@@ -10,4 +10,6 @@ npm run build
 To start the website locally, run:
 ```
 npx @11ty/eleventy --serve
+or 
+npm run serve
 ```
